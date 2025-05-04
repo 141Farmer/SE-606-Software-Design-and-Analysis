@@ -5,6 +5,7 @@ import clean.usermanagement.application.interfaces.RoleRepository;
 
 import java.util.UUID;
 
+
 public class RoleService {
 
     private final RoleRepository roleRepository;

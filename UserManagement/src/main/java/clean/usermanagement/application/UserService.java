@@ -8,6 +8,7 @@ import clean.usermanagement.application.interfaces.RoleRepository;
 import java.util.UUID;
 import java.util.Optional;
 
+
 public class UserService {
 
     private final UserRepository userRepository;

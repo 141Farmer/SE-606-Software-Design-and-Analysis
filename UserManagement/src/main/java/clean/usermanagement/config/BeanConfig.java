@@ -4,11 +4,10 @@ import clean.usermanagement.application.UserService;
 import clean.usermanagement.application.RoleService;
 import clean.usermanagement.application.interfaces.UserRepository;
 import clean.usermanagement.application.interfaces.RoleRepository;
-import clean.usermanagement.infrastructure.persistence.UserRepositoryImpl;
-import clean.usermanagement.infrastructure.persistence.RoleRepositoryImpl;
-import clean.usermanagement.infrastructure.persistence.UserJpaRepository;
-import clean.usermanagement.infrastructure.persistence.RoleJpaRepository;
 
+
+import clean.usermanagement.infrastructure.persistence.RoleJpaRepository;
+import clean.usermanagement.infrastructure.persistence.UserJpaRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,22 +15,14 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfig {
 
     @Bean
-    public UserService userService(UserRepository userRepository, RoleRepository roleRepository) {
-        return new UserService(userRepository, roleRepository);
+    public UserService userService(UserJpaRepository userJpaRepository, RoleJpaRepository roleJpaRepository) {
+        return new UserService(userJpaRepository, roleJpaRepository);
     }
 
     @Bean
-    public RoleService roleService(RoleRepository roleRepository) {
-        return new RoleService(roleRepository);
+    public RoleService roleService(RoleJpaRepository roleJpaRepository) {
+        return new RoleService(roleJpaRepository);
     }
 
-    @Bean
-    public UserRepository userRepository(UserJpaRepository userJpaRepository, RoleJpaRepository roleJpaRepository) {
-        return new UserRepositoryImpl(userJpaRepository, roleJpaRepository);
-    }
 
-    @Bean
-    public RoleRepository roleRepository(RoleJpaRepository roleJpaRepository) {
-        return new RoleRepositoryImpl(roleJpaRepository);
-    }
 }
