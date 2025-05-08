@@ -1,10 +1,10 @@
-package clean.cleanarchitecture;
+package softwaredesign.usermanagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CleanArchitectureApplicationTests {
+class UserManagementApplicationTests {
 
     @Test
     void contextLoads() {
