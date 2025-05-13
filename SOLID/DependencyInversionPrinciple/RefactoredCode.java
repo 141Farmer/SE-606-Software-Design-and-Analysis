@@ -2,11 +2,11 @@
 
 package DependencyInversionPrinciple;
 
-interface INotificationService{ 
+interface INotification{ 
     void SendMessage(String message); 
 }
 
-class EmailService implements INotificationService{ 
+class EmailService implements INotification{ 
     public void SendMessage(String message){ 
 	    System.out.println("Sending email: " + message); 
     } 
@@ -14,12 +14,12 @@ class EmailService implements INotificationService{
 
 class NotificationService{ 
 
-    private INotificationService notificationService; 
+    private INotification notification; 
      
-    public NotificationService(INotificationService notificationService){ 
-	    this.notificationService = notificationService; 
+    public NotificationService(INotification notification){ 
+	    this.notification = notification; 
     }
     public void Notify(String message){ 
-	    notificationService.SendMessage(message); 
+	    notification.SendMessage(message); 
     } 
 }
